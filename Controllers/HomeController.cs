@@ -23,7 +23,7 @@ namespace Bookstore.Controllers
 
             var books = repo.Books
                 .OrderBy(prop => prop.Title)
-                .Skip(pageNum * pageSize)
+                .Skip((pageNum - 1) * pageSize)
                 .Take(pageSize);
 
             return View(books);
