@@ -17,9 +17,14 @@ namespace Bookstore.Controllers
         {
             repo = temp;
         }
-        public IActionResult Index()
+        public IActionResult Index(int pageNum = 1)
         {
-            var books = repo.Books.ToList();
+            int pageSize = 5;
+
+            var books = repo.Books
+                .OrderBy(prop => prop.Title)
+                .Skip(pageNum * pageSize)
+                .Take(pageSize);
 
             return View(books);
         }
