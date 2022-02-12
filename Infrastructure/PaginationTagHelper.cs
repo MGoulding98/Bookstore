@@ -29,6 +29,8 @@ namespace Bookstore.Infrastructure
 
         // Different than the view context
         public PageInfo PageModel { get; set; }
+        public string PageAction { get; set; }
+
         public override void Process (TagHelperContext thc, TagHelperOutput tho)
         {
             IUrlHelper uh = uhf.GetUrlHelper(vc);
@@ -39,10 +41,12 @@ namespace Bookstore.Infrastructure
             {
                 TagBuilder tb = new TagBuilder("a");
 
-                tb.Attributes["href"] = 
+                tb.Attributes["href"] = uh.Action(PageAction, new { pageNum = i });
+                tb.InnerHtml.Append(i.ToString());
+
+                final.InnerHtml.AppendHtml(tb);
             }
-
-
+            tho.Content.AppendHtml(final.InnerHtml);
         }
     }
 }

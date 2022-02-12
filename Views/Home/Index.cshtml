@@ -1,6 +1,5 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
-    ViewBag.Calc = 20 / 5;
 }
 
 @model BooksViewModel
@@ -23,4 +22,4 @@
     <br />
 }
 
-<div page-model="@Model.PageInfo"></div>
+<div page-model="@Model.PageInfo" page-action="Index"></div>
