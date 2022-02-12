@@ -19,6 +19,6 @@ namespace Bookstore.Models
         {
         }
 
-        public DbSet<Books> Books { get; set; }
+        public DbSet<Book> Books { get; set; }
     }
 }

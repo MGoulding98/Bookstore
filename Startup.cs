@@ -28,9 +28,11 @@ namespace Bookstore
             services.AddControllersWithViews();
 
             services.AddDbContext<BookstoreContext>(options =>
-           {
-               options.UseSqlite(Configuration["ConnectionsStrings:BookDBConnection"]);
-           });
+            {
+               options.UseSqlite(Configuration["ConnectionStrings:BookDBConnection"]);
+            });
+
+            services.AddScoped<IBookstoreRepository, EFBookstoreRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
