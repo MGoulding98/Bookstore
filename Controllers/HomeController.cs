@@ -25,7 +25,7 @@ namespace Bookstore.Controllers
             var x = new BooksViewModel
             {
                 Books = repo.Books
-                .Where(c => c.Category == category)
+                .Where(c => c.Category == category || category == null)
                 .OrderBy(prop => prop.Title)
                 .Skip((pageNum - 1) * pageSize)
                 .Take(pageSize),
