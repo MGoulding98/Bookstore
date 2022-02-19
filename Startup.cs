@@ -61,6 +61,10 @@ namespace Bookstore
                     "{category}/Page{pageNum}",
                     new { Controller = "Home", action = "Index" });
 
+                endpoints.MapControllerRoute("category",
+                    "{category}",
+                    new { Controller = "Home", action = "Index", pageNum = 1 });
+
                 endpoints.MapControllerRoute(
                     name: "Paging",
                     pattern: "Page{pageNum}",
