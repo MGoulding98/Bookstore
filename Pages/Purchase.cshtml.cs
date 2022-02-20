@@ -18,8 +18,9 @@ namespace Bookstore.Pages
         }
         public Cart cart { get; set; }
 
-        public void OnGet()
+        public void OnGet(Cart c)
         {
+            cart = c;
         }
 
         public IActionResult OnPost(int bookId)
@@ -29,7 +30,7 @@ namespace Bookstore.Pages
             cart = new Cart();
             cart.AddItem(b, 1);
 
-            return RedirectToPage();
+            return RedirectToPage(cart);
         }
     }
 }
