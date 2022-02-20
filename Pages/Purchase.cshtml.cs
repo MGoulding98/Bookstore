@@ -12,5 +12,9 @@ namespace Bookstore.Pages
         public void OnGet()
         {
         }
+
+        public void OnPost()
+        {
+        }
     }
 }
