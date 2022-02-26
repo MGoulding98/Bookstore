@@ -1,5 +1,6 @@
 ﻿using Bookstore.Infrastructure;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,15 @@ namespace Bookstore.Models
 {
     public class SessionCart : Cart
     {
+        public static Cart GetCart(IServiceProvider services)
+        {
+            ISession session = services.GetRequiredService<IHttpContextAccessor>()?.HttpContext.Session;
+
+            SessionCart cart = session?.GetJson<SessionCart>("Cart") ?? new SessionCart();
+
+            return cart;
+        }
+
         [JsonIgnore]
         public ISession Session { get; set; }
 
