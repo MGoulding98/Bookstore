@@ -12,13 +12,14 @@ namespace Bookstore.Pages
     public class PurchaseModel : PageModel
     {
         private IBookstoreRepository repo { get; set; }
-
-        public PurchaseModel (IBookstoreRepository temp)
-        {
-            repo = temp;
-        }
         public Cart cart { get; set; }
         public string ReturnUrl { get; set; }
+
+        public PurchaseModel(IBookstoreRepository temp, Cart b)
+        {
+            repo = temp;
+            cart = b;
+        }
 
         public void OnGet(string returnUrl)
         {
@@ -34,9 +35,11 @@ namespace Bookstore.Pages
             return RedirectToPage(new { ReturnUrl = returnUrl });
         }
 
-        public IActionResult OnPostRemove()
+        public IActionResult OnPostRemove(int bookId, string returnUrl)
         {
+            cart.RemoveItem(cart.Items.First(x => x.Book.BookId == bookId).Book);
 
+            return RedirectToPage(new { ReturnUrl = returnUrl });
         }
     }
 }
