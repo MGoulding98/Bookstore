@@ -7,6 +7,8 @@
 <p>Please enter your details so we we can ship your purchase!</p>
 
 <form method="post" asp-action="Checkout">
+    <div asp-validation-summary="All" class="text-danger"></div>
+
     <h4>Ship To</h4>
 
     <div class="form-group">
