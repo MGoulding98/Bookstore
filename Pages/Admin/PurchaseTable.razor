@@ -17,7 +17,7 @@
                     <th>Quantity</th>
                 </tr>
 
-                @foreach (CartLineItem cli in p.Items)
+                @foreach (CartLineItem cli in p.Lines)
                 {
                     <tr>
                         <td colspan="2"></td>
@@ -44,7 +44,7 @@
     public IEnumerable<Purchase> Purchases { get; set; }
 
     [Parameter]
-    public string ButtonLabel { get; set; } = "Purchased";
+    public string ButtonLabel { get; set; } = "Collected";
 
     [Parameter]
     public EventCallback<int> PurchaseSelected { get; set; }
