@@ -58,8 +58,11 @@
         <InputNumber class="form-control" @bind-Value="b.PageCount"></InputNumber>
     </div>
 
-    <button type="submit" class="btn btn-@ThemeColor">Save</button>
-    <NavLink class="btn btn-secondary" href="/admin/books">Cancel</NavLink>
+    @*Additional Bootstrap: Added button group so that the Save and Cancel buttons are linked together on this form*@
+    <div class="btn-group" role="group" aria-label="Basic example">
+        <button type="submit" class="btn btn-@ThemeColor">Save</button>
+        <NavLink class="btn btn-secondary" href="/admin/books">Cancel</NavLink>
+    </div>
 
 </EditForm>
 
@@ -70,6 +73,7 @@
 
     public string ThemeColor => Id == 0 ? "primary" : "warning";
     public string TitleText => Id == 0 ? "Create" : "Edit";
+
 
     public Book b { get; set; } = new Book();
 
