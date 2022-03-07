@@ -103,7 +103,7 @@ namespace Bookstore.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<bool>("PurchaseReceived")
+                    b.Property<bool>("Shipped")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("State")

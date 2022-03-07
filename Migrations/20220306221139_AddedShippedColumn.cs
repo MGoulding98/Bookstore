@@ -2,12 +2,12 @@
 
 namespace Bookstore.Migrations
 {
-    public partial class AddReceivedField : Migration
+    public partial class AddedShippedColumn : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<bool>(
-                name: "PurchaseReceived",
+                name: "Shipped",
                 table: "Purchases",
                 nullable: false,
                 defaultValue: false);
