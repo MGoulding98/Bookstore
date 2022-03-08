@@ -23,15 +23,19 @@ namespace Bookstore.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Author")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Category")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Classification")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Isbn")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<long>("PageCount")
@@ -41,9 +45,11 @@ namespace Bookstore.Migrations
                         .HasColumnType("REAL");
 
                     b.Property<string>("Publisher")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Title")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("BookId");
