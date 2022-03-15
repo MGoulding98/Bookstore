@@ -15,6 +15,11 @@
     <title>Bookstore Admin</title>
     <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <base href="/" />
+
+    @*Added an alert at the top of the page reminding users to logout when finished*@
+    <div class="alert alert-primary" role="alert">
+            Welcome to the admin page! Don't forget to logout when finished.
+    </div>
 </head>
 <body>
     <component type="typeof(Bookstore.Pages.Admin.Routed)" render-mode="Server" />
